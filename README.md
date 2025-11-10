@@ -3,8 +3,6 @@
 This project is a full-stack web application developed for a STEM system.  
 It allows users to submit contact forms through a **React** frontend, which communicates with a **Spring Boot** backend connected to a **MySQL** database.
 
----
-
 ## 💡 Project Overview
 The web app consists of two main parts:
 - **Frontend (`stem-front/`)** — Handles user interface and form submission  
@@ -12,14 +10,10 @@ The web app consists of two main parts:
 
 The main purpose of this project is to build a simple yet complete full-stack system that demonstrates frontend-backend communication, database integration, and environment-based configuration.
 
----
-
 ## ⚙️ Tools & Technologies
 - **Frontend:** React, JavaScript, Axios  
 - **Backend:** Spring Boot (Java 17), Spring Web, Spring Data JPA  
 - **Database:** MySQL  
-
----
 
 ## 🧩 Key Features
 ### Frontend
