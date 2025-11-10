@@ -1,34 +1,52 @@
 # Web_Application — React + Spring Boot (MySQL)
 
-This project is a full-stack web application developed for a STEM system.  
-It allows users to submit contact forms through a **React** frontend, which communicates with a **Spring Boot** backend connected to a **MySQL** database.
+This project is a full-stack web application developed for a STEM system.
+It allows users to **submit contact forms** and includes an **admin login system** that allows administrators to review submitted data.  
+The system is built with a **React** frontend, a **Spring Boot** backend, and a **MySQL** database.
 
-## 💡 Project Overview
+## Project Overview
 The web app consists of two main parts:
-- **Frontend (`stem-front/`)** — Handles user interface and form submission  
-- **Backend (`stem-backend/`)** — Provides RESTful APIs and connects to the MySQL database  
+- **Frontend (`stem-front/`)** — Handles user interface, login, and form submission  
+- **Backend (`stem-backend/`)** — Provides RESTful APIs for login authentication and database operations  
 
-The main purpose of this project is to build a simple yet complete full-stack system that demonstrates frontend-backend communication, database integration, and environment-based configuration.
+The main purpose of this project is to build a complete full-stack system that demonstrates frontend-backend communication, database integration, user authentication, and environment-based configuration.
 
-## ⚙️ Tools & Technologies
+## Tools & Technologies
 - **Frontend:** React, JavaScript, Axios  
-- **Backend:** Spring Boot (Java 17), Spring Web, Spring Data JPA  
-- **Database:** MySQL  
+- **Backend:** Spring Boot (Java 17), Spring Web, Spring Data JPA, Spring Security  
+- **Database:** MySQL 
 
-## 🧩 Key Features
+## Key Features
+
 ### Frontend
-- User-friendly web interface built with React  
-- Contact form where users can enter their name, email, and message  
-- Data submission through Axios to backend REST API  
-- Input validation and form feedback  
+- **User Interface:** Built with React and styled for responsive layout  
+- **Contact Form:** Users can submit their name, email, and message  
+- **Login System:**  
+  - Admin login form that validates credentials via backend API 
+  - Unauthorized users are redirected to the login page  
+- **Admin Page:**  
+  - Displays all submitted contact messages retrieved from the database  
+  - Admin can view details and manage data records  
+- **API Communication:** Uses Axios to interact with backend REST APIs  
 
 ### Backend
-- Spring Boot RESTful API for handling POST/GET requests  
-- Stores form data (first name, last name, email, message) into MySQL database  
-- Includes error handling and response status codes  
-- CORS enabled for local frontend-backend communication  
+- **Spring Boot RESTful APIs:**  
+  - `/contact` endpoint for handling user submissions  
+  - `/admin/login` endpoint for verifying admin credentials  
+- **Authentication:** Simple token-based login system  
+- **Database Integration:** Saves and retrieves data from MySQL using JPA  
+- **CORS Configuration:** Allows secure communication with React frontend  
 
 ### Database
-- MySQL used to persist user submissions  
-- Table created to store contact form data  
-- Supports data retrieval for admin review  
+- MySQL database used to persist both **user submissions** and **admin credentials**  
+- Separate tables for:
+  - `contacts` — storing submitted form data (name, email, message)
+  - `admin` — storing admin user accounts  
+- Supports data retrieval for admin viewing  
+
+## Summary
+This project demonstrates:
+- Building a full-stack web app using React and Spring Boot  
+- Integrating a RESTful API with MySQL  
+- Implementing a simple authentication system and protected admin page  
+- Managing environment variables and secure configuration  
