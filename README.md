@@ -1,7 +1,7 @@
 # Web_Application — React + Spring Boot (MySQL)
 
 This project is a full-stack web application developed for a STEM system.
-It allows users to **submit contact forms** and includes an **admin login system** that allows administrators to review submitted data.  
+It allows users to **submit contact forms** and includes an **admin login system** that allows administrators to review submitted data.
 The system is built with a **React** frontend, a **Spring Boot** backend, and a **MySQL** database.
 
 ## Project Overview
