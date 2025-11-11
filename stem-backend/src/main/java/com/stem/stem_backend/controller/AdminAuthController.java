@@ -20,12 +20,11 @@ public class AdminAuthController {
     public Map<String, String> login(@RequestBody Admin admin) {
         Map<String, String> response = new HashMap<>();
 
-        // 模擬帳號驗證
         if ("admin".equals(admin.getId()) && "1234".equals(admin.getPassword())) {
             String token = Jwts.builder()
                     .setSubject(admin.getId())
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000)) // 1 小時有效
+                    .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
                     .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
                     .compact();
 
