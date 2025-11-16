@@ -54,14 +54,14 @@ function Admin() {
                     </thead>
                     <tbody>
                         {submissions.map((item, index) => {
-                            const { id, firstName, lastName, email, message} = item;
-                            return(
+                            const { id, firstName, lastName, email, message } = item;
+                            return (
                                 <tr key={id}>
-                                <th scope="row">{index + 1}</th>
-                                <td>{firstName} {lastName}</td>
-                                <td>{email}</td>
-                                <td>{message}</td>
-                            </tr>
+                                    <th scope="row">{index + 1}</th>
+                                    <td>{firstName} {lastName}</td>
+                                    <td>{email}</td>
+                                    <td>{message}</td>
+                                </tr>
                             )
                         })}
                     </tbody>

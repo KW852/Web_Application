@@ -1,12 +1,10 @@
 package com.stem.stem_backend.controller;
 
 import com.stem.stem_backend.model.Admin;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.stem.stem_backend.security.JwtService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
-import java.util.HashMap;
+import org.springframework.web.server.ResponseStatusException;
 import java.util.Map;
 
 @RestController
@@ -14,25 +12,20 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000")
 public class AdminAuthController {
 
-    private static final String SECRET_KEY = "z8N3nD9fKp2Lq4Tx7Vv9z6Ys3cDf8gGh1jKl2pQr5tUv7wXy";
+    private final JwtService jwt;
+
+    public AdminAuthController(JwtService jwt) {
+        this.jwt = jwt;
+    }
 
     @PostMapping("/login")
     public Map<String, String> login(@RequestBody Admin admin) {
-        Map<String, String> response = new HashMap<>();
 
         if ("admin".equals(admin.getId()) && "1234".equals(admin.getPassword())) {
-            String token = Jwts.builder()
-                    .setSubject(admin.getId())
-                    .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 1000))
-                    .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-                    .compact();
-
-            response.put("token", token);
-        } else {
-            response.put("error", "Invalid credentials");
+            String token = jwt.generateToken(admin.getId());
+            return Map.of("token", token);
         }
 
-        return response;
+        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid credentials");
     }
 }

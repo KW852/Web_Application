@@ -6,7 +6,14 @@ function Login() {
     const navigate = useNavigate();
     const [adminId, setAdminId] = useState("");
     const [password, setPassword] = useState("");
+    // const [account, setAccount] = useState({ id: "", password: "" })
     const [error, setError] = useState("");
+
+    // const { id, password } = account;
+
+    // const onInputChange = (e) => {
+    //     setAccount({ ...account, [e.target.name]: e.target.value })
+    // }
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -50,6 +57,7 @@ function Login() {
                                 className="form-control p-3"
                                 id="adminId"
                                 placeholder="Enter your ID"
+                                // name="id"
                                 value={adminId}
                                 onChange={(e) => setAdminId(e.target.value)}
                                 required
@@ -63,6 +71,7 @@ function Login() {
                                 className="form-control p-3"
                                 id="password"
                                 placeholder="Enter your password"
+                                // name="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
